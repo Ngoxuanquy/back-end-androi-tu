@@ -1,8 +1,5 @@
-const express = require("express");
-const jwt = require("jsonwebtoken");
 // const passport = require("passport");
 const UserChema = require("../models/User");
-const bcrypt = require("bcrypt");
 
 const getUser = async (req, res) => {
     const { username, password, role } = req.body;
