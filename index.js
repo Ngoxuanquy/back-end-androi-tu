@@ -9,7 +9,7 @@ const port = 4000;
 //kết nối db
 db.connect();
 
-app.use(bodyParser.urlencoded({extended:false}));
+// app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 
 app.use(cors());
