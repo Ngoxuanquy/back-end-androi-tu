@@ -7,10 +7,8 @@ const getListToCart = async (req, res) => {
       userid: userId,
       status: false
      });
-
     return res.send(itemsForUser);
   } catch (error) {
-    console.log(error);
     return res.status(500).send('Internal server error');
   }
 }
@@ -25,7 +23,6 @@ const getListToCartByTT = async (req, res) => {
 
     return res.send(itemsForUser);
   } catch (error) {
-    console.log(error);
     return res.status(500).send('Internal server error');
   }
 }
@@ -47,8 +44,6 @@ const ThanhToan = async (req, res) => {
         },
         { $set: { status: true } }
       );
-
-      console.log(itemsForUser);
     }
 
     return res.send('Update successful'); // Sending a response after processing all items
