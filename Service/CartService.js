@@ -33,7 +33,7 @@ class CartService {
                 quantity: 1,
                 price: payload.price,
                 productId: payload.productId,
-                // total: payload.price * 1
+                status: payload.status
             });
 
             return {
@@ -45,14 +45,7 @@ class CartService {
         console.error("Lỗi ", error);
     }
 }
-    // static async getListUserCart1({ Id }) {
-    //    const newCart = await CartChema
-    //         .find({
-    //             userid: Id,
-    //         })
-    //         console.log({newCart})
-    //         return  newCart;
-    // }
+
 }
 
 module.exports = CartService
