@@ -6,7 +6,7 @@ const getListToCart = async (req, res) => {
     const itemsForUser = await CartChema.find({ 
       userid: userId,
       status: false
-     });
+     }).lean()
     return res.send(itemsForUser);
   } catch (error) {
     return res.status(500).send('Internal server error');
@@ -70,7 +70,7 @@ const  createUserCart = async (req, res) => {
         if (existingCartItem ) {
             console.log("đã có")
             // Mặt hàng đã tồn tại trong giỏ hàng, nên tăng số lượng
-            existingCartItem.quantity += 1;
+            existingCartItem.quantity += payload.quantity;
             existingCartItem.total = existingCartItem.price * existingCartItem.quantity;
             const updatedCartItem = await existingCartItem.save();
 
@@ -88,7 +88,7 @@ const  createUserCart = async (req, res) => {
                 userid: payload.userid,
                 img: payload.img,
                 nameproduct: payload.nameproduct,
-                quantity: 1,
+                quantity: payload.quantity,
                 price: payload.price,
                 productId: payload.productId,
                 status: payload.status
